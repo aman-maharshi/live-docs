@@ -3,8 +3,10 @@ import React from 'react'
 
 const Home = () => {
   return (
-    <div>
+    <div className='p-4 md:px-14'>
+      <div className='mb-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, ab!</div>
       <Button>Click me</Button>
+
     </div>
   )
 }
