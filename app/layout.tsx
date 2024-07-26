@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils"
 import { Metadata } from "next"
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
+import Provider from "./Provider"; // Live Blocks Provider
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
 
 const clerkAppearance = {
   baseTheme: dark,
-  variables: { 
+  variables: {
     colorPrimary: "#3371FF",
     fontSize: '16px'
   }
@@ -33,7 +34,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             fontSans.variable
           )}
         >
-          {children}
+          <Provider>
+            {children}
+          </Provider>
         </body>
       </html>
     </ClerkProvider>

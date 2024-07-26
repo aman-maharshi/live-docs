@@ -4,7 +4,6 @@ declare type HeaderProps = {
   className?: string;
 };
 
-/*
 declare type SearchParamProps = {
   params: { [key: string]: string };
   searchParams: { [key: string]: string | string[] | undefined };
@@ -79,4 +78,3 @@ declare type AddDocumentBtnProps = {
 declare type DeleteModalProps = { roomId: string };
 
 declare type ThreadWrapperProps = { thread: ThreadData<BaseMetadata> };
-*/
