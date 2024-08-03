@@ -6,6 +6,7 @@ import Header from '@/components/Header'
 import { Button } from '@/components/ui/button'
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs'
 import Image from 'next/image'
+import ActiveCollaborators from './ActiveCollaborators'
 
 const CollaborativeRoom = () => {
   return (
@@ -20,12 +21,16 @@ const CollaborativeRoom = () => {
               </Button>
             </div>
 
-            <SignedOut>
-              <SignInButton />
-            </SignedOut>
-            <SignedIn>
-              <UserButton />
-            </SignedIn>
+            <div className='flex w-full flex-1 justify-end gap-2 sm:gap-3'>
+              <ActiveCollaborators />
+
+              <SignedOut>
+                <SignInButton />
+              </SignedOut>
+              <SignedIn>
+                <UserButton />
+              </SignedIn>
+            </div>
           </Header>
           <Editor />
         </div>
