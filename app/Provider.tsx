@@ -13,7 +13,7 @@ const Provider = ({ children }: { children: ReactNode }) => {
         return users
       }}
     >
-      <ClientSideSuspense fallback={<div>Loading…</div>}>
+      <ClientSideSuspense fallback={<div className='h-screen w-full flex items-center justify-center'>Loading…</div>}>
         {children}
       </ClientSideSuspense>
     </LiveblocksProvider>

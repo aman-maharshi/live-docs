@@ -61,7 +61,7 @@ const CollaborativeRoom = ({ roomId, roomMetadata }: CollaborativeRoomProps) => 
 
   return (
     <RoomProvider id={roomId}>
-      <ClientSideSuspense fallback={<div>Loading…</div>}>
+      <ClientSideSuspense fallback={<div className='h-screen w-full flex items-center justify-center'>Loading…</div>}>
         <div className="collaborative-room">
           <Header>
             <div ref={containerRef} className='flex w-fit items-center justify-center gap-2'>
