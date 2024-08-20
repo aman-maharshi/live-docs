@@ -11,8 +11,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Input } from './ui/input'
 import { updateDocument } from '@/lib/actions/room.actions'
 
-const CollaborativeRoom = ({ roomId, roomMetadata }: CollaborativeRoomProps) => {
-  const currentUserType = 'editor'
+const CollaborativeRoom = ({ roomId, roomMetadata, users, currentUserType }: CollaborativeRoomProps) => {
 
   const [documentTitle, setDocumentTitle] = useState(roomMetadata.title)
   const [editing, setEditing] = useState(false)
@@ -33,7 +32,7 @@ const CollaborativeRoom = ({ roomId, roomMetadata }: CollaborativeRoomProps) => 
             setEditing(false)
           }
         }
-        
+
       } catch (error) {
         console.log(error)
       }
@@ -56,7 +55,7 @@ const CollaborativeRoom = ({ roomId, roomMetadata }: CollaborativeRoomProps) => 
       document.removeEventListener('mousedown', handleOutsideClick)
     }
   }, [roomId, documentTitle])
-  
+
 
 
   return (
@@ -71,7 +70,7 @@ const CollaborativeRoom = ({ roomId, roomMetadata }: CollaborativeRoomProps) => 
               </Button> */}
 
               {editing && !loading ? (
-                <Input 
+                <Input
                   type="text"
                   value={documentTitle}
                   ref={inputRef}
@@ -121,7 +120,10 @@ const CollaborativeRoom = ({ roomId, roomMetadata }: CollaborativeRoomProps) => 
             </div>
           </Header>
 
-          <Editor />
+          <Editor
+            roomId={roomId}
+            currentUserType={currentUserType}
+          />
         </div>
       </ClientSideSuspense>
     </RoomProvider>
